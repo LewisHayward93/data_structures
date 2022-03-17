@@ -1,0 +1,58 @@
+#+TITLE: Two Sum
+
+* Overview
+
+https://leetcode.com/problems/two-sum/
+
+- simple problem on leetcode
+- brute force solution to do for loop within a for loop to iterate through each element, $0(N^2)$ time complexity
+
+I noticed that the brute force algorithm was fast enough for leetcode testing given the small input parameters, to help highlight the benefits of using a hashmap/dictionary, I have created a program to test against inputs of verying lengths.
+
+Using a HashMap reduces the time complexity significantly to O(N)!
+
+** Time complexity explanation
+
+*** Brute force
+
+#+begin_src java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+
+       int[] result = new int[2];
+
+        for(int i=0; i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++) {
+                if (nums[j] == target - nums[i]) {
+                    result[0] = i;
+                    result[1]=j;
+                }
+            }
+        }
+        return result;
+    }
+}
+#+end_src
+
+In the worse case scenario, the last two elements could be the answer and so each element is required to be tested against each element. With each for loop being O(N), time complexity is O(N) * O(N) = O(N^2)
+
+** HashMap
+
+See [[file:./Time.java][Time.java]] for code.
+
+Each element is test against the target and if the answer is not in the hashmap, we add it. This means we only need to loop through the elements a single time, adding the delta and index position to the map as we go along. As hashmaps are O(1), or constant, to read, the time complexity is O(N)*O(1) = O(N).
+
+* How to run and test
+
+#+begin_src java
+java Time.java // generates output to the terminal
+#+end_src
+
+* Results
+
+| Number of integers | Without Map (ms) | With Map (ms) |
+|--------------------+------------------+---------------|
+|                100 |                0 |             0 |
+|               1000 |                1 |             0 |
+|              10000 |               15 |             1 |
+|             100000 |              995 |            13 |

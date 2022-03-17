@@ -1,0 +1,24 @@
+#+TITLE: Data Structures
+
+This repository contains some leetcode/dynamic programming problem solutions.
+
+Emphasis on the data structures used to solve solutions efficiently have been highlighted/
+
+* Two Sum
+
+https://leetcode.com/problems/two-sum/
+
+- simple problem on leetcode
+- brute force solution to do for loop within a for loop to iterate through each element, $0(N^2)$ time complexity
+
+I noticed that the brute force algorithm was fast enough for leetcode testing given the small input parameters, to help highlight the benefits of using a hashmap/dictionary, I have created a program to test against inputs of verying lengths.
+
+** Results
+
+| Number of integers | Without Map (ms) | With Map (ms) |
+|--------------------+------------------+---------------|
+|                100 |                0 |             0 |
+|               1000 |                1 |             0 |
+|              10000 |               15 |             1 |
+|             100000 |              995 |            13 |
+
