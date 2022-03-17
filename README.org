@@ -22,3 +22,4 @@ I noticed that the brute force algorithm was fast enough for leetcode testing gi
 |              10000 |               15 |             1 |
 |             100000 |              995 |            13 |
 
+* Fibonacci (memoisation)
